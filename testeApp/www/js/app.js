@@ -77,6 +77,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
+  })
+  .state('tab.profile', {
+      url: '/profile',
+      views: {
+          'tab-profile': {
+              templateUrl: 'templates/tab-profile.html',
+              controller: 'ProfileCtrl'
+          }
+      }
   });
 
   // if none of the above states are matched, use this as the fallback

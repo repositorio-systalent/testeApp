@@ -1,0 +1,46 @@
+<ion-view view-title="Perfil">
+  <ion-content id="profile">
+    <div class="card padding">
+      <h2 id="profile-tiltle">Perfil</h2>
+      <img id="profile-image" src="{{user.urlFoto}}">
+      <ul class="list">
+        <li class="item">
+          <div class="row">
+            <div class="col col-33 item-profile" >Nome</div>
+            <div class="col value-profile">{{user.nome}}</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="row">
+            <div class="col col-33 item-profile" >Apelido</div>
+            <div class="col value-profile">{{user.apelido}}</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="row">
+            <div class="col col-33 item-profile" >Email</div>
+            <div class="col value-profile">{{user.email}}</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="row">
+            <div class="col col-33 item-profile" >Telefone</div>
+            <div class="col value-profile">{{user.telefone}}</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="row">
+            <div class="col col-33 item-profile" >Nascimento</div>
+            <div class="col value-profile">{{user.data_nascimento.split("-").reverse().join("/")}}</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="row">
+            <div class="col col-33 item-profile" >Gênero</div>
+            <div class="col value-profile">{{user.genero}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-view>
