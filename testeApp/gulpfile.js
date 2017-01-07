@@ -6,6 +6,9 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var gulpDocs = require('gulp-ngdocs');
+var webserver = require('gulp-webserver');
+var opn       = require('opn');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -48,4 +51,25 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+gulp.task('ngdocs', [], function () {
+    gulp.src('www/js/**/*.js')
+        .pipe(gulpDocs.process())
+        .pipe(gulp.dest('./docs'));
+
+    setTimeout(function(){
+        gulp.start('serve-docs')
+    }, 2000);
+});
+
+gulp.task('serve-docs', function() {
+    gulp.src('./docs')
+        .pipe(webserver({
+            livereload: true,
+            directoryListing: false,
+            fallback: 'index.html',
+            open: false
+        }));
+    return opn('http://localhost:8000/api/user');
 });
