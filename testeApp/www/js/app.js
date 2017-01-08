@@ -77,7 +77,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
+
+//ABA DO PERFIL DO USUÁRIO
+.state('tab.profile', {
+  url: '/profile',
+  views: {
+    'tab-profile': {
+      templateUrl: 'templates/tab-profile.html',
+      controller: 'ProfileCtrl'
+    }
+  }
+});
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');

@@ -1,0 +1,58 @@
+<!--PÁGINA COM INFORMAÇÕES DE PERFIL DO USUÁRIO-->
+
+<ion-view view-title="Profile">
+  <ion-content>
+
+    <!--CARREGANDO HTTP DO PROFILE-->
+    <div style="text-align: center; margin-top: 15px;" ng-if="loading">
+      <ion-spinner icon="spiral"></ion-spinner>
+    </div>
+
+    <!--EM CASO DE ERRO NO HTTP DO PROFILE-->
+    <div style="text-align: center; margin-top: 15px;" ng-if="erro">
+      <p>Ocorreu um erro ao carregar os dados :(</p>
+      <button class="button button-positive" on-tap="reload()">
+        Tentar Novamente
+      </button>
+    </div>
+
+    <!--DADOS DO PROFILE-->
+    <div ng-if="profile">
+      <div class="list card">
+      <!--FOTO-->
+        <div class="item item-image">
+          <img ng-src="{{profile.urlFoto}}">
+        </div>
+      <!--NOME E APELIDO-->
+        <div class="item item-body" style="text-align: center">
+          <b>{{profile.nome}}</b>
+          <br>({{profile.apelido}})
+        </div>
+      </div>
+      <!--EMAIL-->
+      <div class="list card">
+        <div class="item">
+          <b>Email:</b> {{profile.email}}
+        </div>
+      </div>
+      <!--TELEFONE-->
+      <div class="list card">
+        <div class="item">
+          <b>Telefone:</b> {{profile.telefone}}
+        </div>
+      </div>
+      <!--DATA DE NASCIMENTO-->
+      <div class="list card">
+        <div class="item">
+          <b>Nascimento:</b> {{getBeautifulDate(profile.data_nascimento)}}
+        </div>
+      </div>
+      <!--GÊNERO-->
+      <div class="list card">
+        <div class="item">
+          <b>Gênero:</b> {{profile.genero}}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

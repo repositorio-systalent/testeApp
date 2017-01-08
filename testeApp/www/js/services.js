@@ -47,4 +47,11 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+//Retorno JSON do Usuário Padrão
+.service('Profiles', function($http) {
+  this.getProfile = function(){
+    return $http.get('appdata/usuario.json');
+  }
 });
