@@ -1,0 +1,46 @@
+<ion-view view-title="Perfil" ng-controller="PerfilCtrl">
+  <ion-content class="padding">
+    <div class="text-center">
+      <img src="{{perfil.urlFoto}}" class="img-thumbnail img-circle" width="125" height="125">
+    </div>
+    <h3 class="mg-no text-center">{{perfil.nome}}</h3>
+    <div class="text-center"><small> {{perfil.apelido}}</small></div>
+    <div class="list card">
+      <span class="item item-icon-left">
+        <i class="icon ion-ios-email-outline"></i>
+        {{perfil.email}}
+      </span>
+      <span class="item item-icon-left">
+        <i class="icon ion-ios-telephone-outline"></i>
+        {{perfil.telefone}}
+      </span>
+      <span class="item item-icon-left">
+        <i class="icon ion-ios-calendar-outline"></i>
+        {{ perfil.data_nascimento | date:'dd-MM-yyyy'}} - {{idade}} anos
+      </span>
+      <span class="item item-icon-left">
+        <span ng-if="perfil.genero == 'Masculino'">
+          <i class="icon ion-male"></i>
+        </span>
+        <span ng-if="perfil.genero == 'Feminino'">
+          <i class="icon ion-female"></i>
+        </span>
+        {{perfil.genero}}
+      </span>
+      <span class="item social">
+        <a href="#" class="button button-small button-full button-positive">
+          <i class="ion-social-facebook"></i>
+        </a>
+        <a href="#" class="button button-small button-full button-calm">
+          <i class="ion-social-twitter-outline"></i>
+        </a>
+        <a href="#" class="button button-small button-full button-assertive">
+          <i class="ion-social-googleplus-outline"></i>
+        </a>
+        <a href="#" class="button button-small button-full button-balanced">
+          <i class="ion-social-whatsapp-outline"></i>
+        </a>
+      </span>
+    </div>
+  </ion-content>
+</ion-view>

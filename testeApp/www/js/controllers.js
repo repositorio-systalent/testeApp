@@ -25,4 +25,12 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+
+.controller('PerfilCtrl', function($scope,$http) {
+  $http.get('/appdata/usuario.json').success(function(data) {
+    $scope.perfil = data;
+      var birthday = + new Date($scope.perfil.data_nascimento);
+      $scope.idade = ~~((Date.now() - birthday) / (31557600000));
+  });
 });
