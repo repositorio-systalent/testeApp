@@ -25,4 +25,19 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+
+.controller('profileCtrl', function($scope,$http) {
+  
+  
+  loadProfiles = function(){
+    $http.get('appdata/user.json').then(
+     function (response){
+      $scope.profile = response.data;
+    });
+  }
+  loadProfiles();
+  
+   
+  
 });
